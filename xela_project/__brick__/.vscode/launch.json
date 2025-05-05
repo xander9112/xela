@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "{{appName}} (Dev)",
+            "name": "{{appTitle.pascalCase()}} (Dev)",
             "request": "launch",
             "type": "dart",
             "program": "apps/{{appName.snakeCase()}}/lib/main_development.dart",
@@ -17,7 +17,7 @@
             ]
         },
         {
-            "name": "{{appName}} (Stage)",
+            "name": "{{appTitle.pascalCase()}} (Stage)",
             "request": "launch",
             "type": "dart",
             "program": "apps/{{appName.snakeCase()}}/lib/main_staging.dart",
@@ -29,7 +29,7 @@
             ]
         },
         {
-            "name": "{{appName}}",
+            "name": "{{appTitle.pascalCase()}}",
             "request": "launch",
             "type": "dart",
             "program": "apps/{{appName.snakeCase()}}/lib/main_production.dart",
