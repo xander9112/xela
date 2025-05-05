@@ -1,4 +1,4 @@
-# xela
+# xela eXpandable Engine for Lightweight Apps
 
 Flutter App Template
 
