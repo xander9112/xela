@@ -29,19 +29,19 @@ vars:
   appTitle:
     type: string
     description: The title of your application
-    default: My App
+    default: Xela App
     prompt: What is the title of your application?
 
   appName:
     type: string
     description: The name of your project
-    default: my_app
+    default: xela_app
     prompt: What is the name of your application?
 
   domain:
     type: string
     description: The domain of your project
-    default: ru.neoflex
+    default: com.xela
     prompt: What is the domain of your application?
 
   platforms:
@@ -67,6 +67,6 @@ vars:
       - authentication
     values:
       - authentication
-      - push notifications
-      - in-app purchases
+      # - push notifications
+      # - in-app purchases
     prompt: Which features would you like to include in your application?
