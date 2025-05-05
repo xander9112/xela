@@ -1,4 +1,320 @@
 {
   "@@locale": "ru",
-  "@@last_modified": "2024-10-07T16:30:02.786271"
+  "@@last_modified": "2024-10-07T16:30:02.786271",
+  "SettingsI18n_title": "Экран настроек",
+  "@SettingsI18n_title": {
+    "description": "Settings page",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_update": "Экран обновления",
+  "@SettingsI18n_update": {
+    "description": "Update page",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_theme": "Тема",
+  "@SettingsI18n_theme": {
+    "description": "Theme",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_lightTheme": "Светлая",
+  "@SettingsI18n_lightTheme": {
+    "description": "Light theme",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_darkTheme": "Темная",
+  "@SettingsI18n_darkTheme": {
+    "description": "Dark theme",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_systemTheme": "Системная",
+  "@SettingsI18n_systemTheme": {
+    "description": "System theme",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_selectTheme": "Выбрать тему",
+  "@SettingsI18n_selectTheme": {
+    "description": "Select a theme",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_selectLanguage": "Выбрать язык",
+  "@SettingsI18n_selectLanguage": {
+    "description": "Select language",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_systemLanguage": "Системный язык",
+  "@SettingsI18n_systemLanguage": {
+    "description": "System language",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_changePinCode": "Изменить пин код",
+  "@SettingsI18n_changePinCode": {
+    "description": "Change pin code",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_useBiometrics": "Использовать биометрию?",
+  "@SettingsI18n_useBiometrics": {
+    "description": "Use biometrics?",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_useLocalAuth": "Использовать локальную аутентификацию?",
+  "@SettingsI18n_useLocalAuth": {
+    "description": "Use local auth?",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_signOutTitle": "Вы уверены что хотите выйти?",
+  "@SettingsI18n_signOutTitle": {
+    "description": "Are you sure you want to sign out?",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_invalidPin": "Неправильный пин код",
+  "@SettingsI18n_invalidPin": {
+    "description": "Invalid PIN",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_pinCodeMustContain": "{number,plural, =1{Пин код должен содержать {number} символов}other{Пин код должен содержать {number} символов}}",
+  "@SettingsI18n_pinCodeMustContain": {
+    "description": "Pin codes must contain {number} character(s)",
+    "type": "text",
+    "placeholders_order": [
+      "number"
+    ],
+    "placeholders": {
+      "number": {}
+    }
+  },
+  "SettingsI18n_pinCodesDoNotMatch": "Пин код не совпадает",
+  "@SettingsI18n_pinCodesDoNotMatch": {
+    "description": "Pin codes do not match",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_reset": "Сбросить",
+  "@SettingsI18n_reset": {
+    "description": "Reset",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_delete": "Удалить",
+  "@SettingsI18n_delete": {
+    "description": "Delete",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_enterPinCode": "Введите пин код",
+  "@SettingsI18n_enterPinCode": {
+    "description": "Enter pin code",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_repeatPinCode": "Повторите пин код",
+  "@SettingsI18n_repeatPinCode": {
+    "description": "Repeat pin code",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_settingPinCode": "Настроить пин код",
+  "@SettingsI18n_settingPinCode": {
+    "description": "Setting pin code",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_signInToAccessTheApp": "Войдите для доступа в приложение",
+  "@SettingsI18n_signInToAccessTheApp": {
+    "description": "Sign in to access the app",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "SettingsI18n_useBiometricsToLogin": "Использовать биометрию для входа?",
+  "@SettingsI18n_useBiometricsToLogin": {
+    "description": "Use biometrics to login?",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_signIn": "Войти",
+  "@AuthI18n_signIn": {
+    "description": "Sign In title",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_login": "Логин",
+  "@AuthI18n_login": {
+    "description": "Login",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_loginRequired": "Логин обязателен",
+  "@AuthI18n_loginRequired": {
+    "description": "Login required",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_password": "Пароль",
+  "@AuthI18n_password": {
+    "description": "Password",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_passwordRequired": "Пароль не может быть пустым",
+  "@AuthI18n_passwordRequired": {
+    "description": "Password validation message",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_userNotFound": "Неправильно указан логин или пароль",
+  "@AuthI18n_userNotFound": {
+    "description": "Incorrect username or password message",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_minimumPassword": "Пароль должен быть не меньше 6 символов",
+  "@AuthI18n_minimumPassword": {
+    "description": "Password must have at least 6 characters",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_checkInternetConnection": "Проверьте интернет соединение",
+  "@AuthI18n_checkInternetConnection": {
+    "description": "Check internet connection",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_enterPinCode": "Введите пин код",
+  "@AuthI18n_enterPinCode": {
+    "description": "Enter pin code",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_repeatPinCode": "Повторите пин код",
+  "@AuthI18n_repeatPinCode": {
+    "description": "Repeat pin code",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_settingPinCode": "Настроить пин код",
+  "@AuthI18n_settingPinCode": {
+    "description": "Setting pin code",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_pinCodeMustContain": "{number,plural, =1{Пин код должен содержать {number} символов}other{Пин код должен содержать {number} символов}}",
+  "@AuthI18n_pinCodeMustContain": {
+    "description": "Pin codes must contain {number} character(s)",
+    "type": "text",
+    "placeholders_order": [
+      "number"
+    ],
+    "placeholders": {
+      "number": {}
+    }
+  },
+  "AuthI18n_pinCodesDoNotMatch": "Пин коды не совпадают",
+  "@AuthI18n_pinCodesDoNotMatch": {
+    "description": "Pin codes do not match",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_invalidPin": "Неправильный пин код",
+  "@AuthI18n_invalidPin": {
+    "description": "Invalid PIN",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_unknownError": "Неизвестная ошибка. Попробуйте позже",
+  "@AuthI18n_unknownError": {
+    "description": "Unknown error. Please try later",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_signInToAccessTheApp": "Войдите чтобы получить доступ к приложению",
+  "@AuthI18n_signInToAccessTheApp": {
+    "description": "Sign in to access the app",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_reset": "Сбросить",
+  "@AuthI18n_reset": {
+    "description": "Reset",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_delete": "Удалить",
+  "@AuthI18n_delete": {
+    "description": "Delete",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_useBiometricsToLogin": "Использовать биометрию для входа?",
+  "@AuthI18n_useBiometricsToLogin": {
+    "description": "Use biometrics to login?",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_resetTitle": "Вы уверены?",
+  "@AuthI18n_resetTitle": {
+    "description": "Are you sure?",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  },
+  "AuthI18n_resetDescription": "После сброса пин кода, необходимо будем авторизоваться.",
+  "@AuthI18n_resetDescription": {
+    "description": "After resetting the PIN-code, you will need to log in.",
+    "type": "text",
+    "placeholders_order": [],
+    "placeholders": {}
+  }
 }

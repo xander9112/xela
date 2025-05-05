@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a messages locale. All the
+// This is a library that provides messages for a ru locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -17,7 +17,7 @@ final messages = MessageLookup();
 typedef String MessageIfAbsent(String? messageStr, List<Object>? args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'messages';
+  String get localeName => 'ru';
 
   static m0(number) => "${Intl.plural(number, one: 'Pin code must contain ${number} character', other: 'Pin code must contain ${number} characters')}";
 
@@ -64,7 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "SettingsI18n_systemLanguage" : MessageLookupByLibrary.simpleMessage("System language"),
     "SettingsI18n_systemTheme" : MessageLookupByLibrary.simpleMessage("System"),
     "SettingsI18n_theme" : MessageLookupByLibrary.simpleMessage("Theme"),
-    "SettingsI18n_title" : MessageLookupByLibrary.simpleMessage("Settings page"),
+    "SettingsI18n_title" : MessageLookupByLibrary.simpleMessage("Экран настроек"),
     "SettingsI18n_update" : MessageLookupByLibrary.simpleMessage("Update page"),
     "SettingsI18n_useBiometrics" : MessageLookupByLibrary.simpleMessage("Use biometrics?"),
     "SettingsI18n_useBiometricsToLogin" : MessageLookupByLibrary.simpleMessage("Use biometrics to login?"),

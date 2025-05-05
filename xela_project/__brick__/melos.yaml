@@ -42,8 +42,8 @@ scripts:
         - "flutter_launcher_icons"
         - "flutter_flavorizr"
   generate-locale:
-    run: melos exec -- "dart scripts/gen_arb.dart"
-    description: "Generate arb from files."
+    run: dart scripts/gen_from_arb.dart
+    description: "Generate locales from arb."
   generate-assets:
     run: melos exec -- "dart run build_runner build -d"
     description: "Generate asset for UI Kit Package"
