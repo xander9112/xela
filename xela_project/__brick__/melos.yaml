@@ -1,4 +1,4 @@
-name: { { appName.snakeCase() } }
+name: {{ appName.snakeCase() }}
 
 packages:
   - apps/*
