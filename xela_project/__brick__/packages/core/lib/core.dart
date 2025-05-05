@@ -6,7 +6,6 @@ library core;
 export 'src/app_info/_app_info.dart';
 export 'src/constants/_constants.dart';
 export 'src/data/_data.dart';
-export 'src/di/di.dart';
 export 'src/events/_events.dart';
 export 'src/exceptions/http_exception.dart';
 export 'src/extensions/_extensions.dart';

@@ -4,12 +4,12 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:config/config.dart';
 import 'package:core/core.dart';
+import 'package:dependencies/dependencies.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:rxdart/rxdart.dart';
 
 typedef AppCallback = Widget Function();
 
@@ -41,7 +41,7 @@ class AppInitializer {
   static BehaviorSubject<int> progress = BehaviorSubject.seeded(0);
 
   static void updateKey() {
-    DI.sl<AppRouter>().redirectUrl =
+    sl<AppRouter>().redirectUrl =
         AutoRouter.of(DialogService.navigatorKey.currentContext!).currentPath;
 
     key.sink.add(UniqueKey());

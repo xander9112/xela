@@ -1,7 +1,8 @@
 {
     "explorer.fileNesting.patterns": {
         "mason.yaml": "mason-lock.json",
-        "pubspec.yaml": ".packages, .metadata, pubspec.lock, analysis_options.yaml, {{appName.snakeCase()}}.iml",
+        "pubspec.yaml": ".packages, .metadata, pubspec.lock, analysis_options.yaml, .flutter-plugins, .flutter-plugins-dependencies, {{appName.snakeCase()}}.iml, melos_{{appName.snakeCase()}}.iml",
+        "flutter_launcher_icons.yaml": "flutter_launcher_icons-*.yaml",
         "*.dart": "${capture}.g.dart, ${capture}.freezed.dart",
         "melos.yaml": "melos_*.iml"
     },
