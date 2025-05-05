@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class NeoScaffold extends StatelessWidget {
-  const NeoScaffold({
+class XelaScaffold extends StatelessWidget {
+  const XelaScaffold({
     super.key,
     this.currentKey,
     this.appBar,

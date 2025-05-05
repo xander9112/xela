@@ -30,7 +30,7 @@ void main() async {
   for (final element in translationFiles) {
     final Map<String, dynamic> translationsByLang =
         jsonDecode(File(element.path).readAsStringSync())
-            as Map<String, dynamic>
+              as Map<String, dynamic>
           ..removeWhere((key, value) => key.contains('@'));
 
     langs.putIfAbsent(
@@ -76,8 +76,9 @@ void main() async {
 """;
   }
 
-  final File file = await File('./shared/l10n/assets/l10n/new_messages.arb')
-      .create(recursive: true);
+  final File file = await File(
+    './shared/l10n/assets/l10n/new_messages.arb',
+  ).create(recursive: true);
 
   await file.writeAsString('{\n$keysToFiles\n}');
 }

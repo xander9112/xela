@@ -564,8 +564,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Тема заявки"),
         "CareerExpertI18n_submit":
             MessageLookupByLibrary.simpleMessage("Отправить заявку"),
-        "CareerExpertI18n_texts": m11,
-        "CareerExpertI18n_titles": m12,
         "DashboardI18n_androidUsers":
             MessageLookupByLibrary.simpleMessage("Android"),
         "DashboardI18n_dashboardNotFound":
