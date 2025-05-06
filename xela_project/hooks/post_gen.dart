@@ -69,7 +69,7 @@ List<String> _addMasonBrick(String moduleName) => [
       'add',
       moduleName.replaceAll('_module', ''),
       '--git-url',
-      'https://github.com/xander9112/neo_skeleton',
+      'https://github.com/xander9112/xela',
       '--git-path',
       moduleName
     ];
