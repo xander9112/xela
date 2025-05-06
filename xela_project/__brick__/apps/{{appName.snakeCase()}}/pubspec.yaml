@@ -9,8 +9,10 @@ environment:
   sdk: ">=3.7.2 <4.0.0"
 
 dependencies:
+  {{#useAuth}}
   auth:
     path: ../../modules/auth
+  {{/useAuth}}
   auto_route: 9.3.0+1
   config:
     path: ../../shared/config
