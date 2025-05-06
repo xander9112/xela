@@ -1,4 +1,6 @@
+{{#useAuth}}
 import 'package:auth/auth.dart';
+{{/useAuth}}  
 import 'package:config/config.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:{{appName.snakeCase()}}/src/core/_core.dart';
@@ -21,7 +23,9 @@ Future<void> configureDependencies(FlavorStatus env) async {
 
 @InjectableInit(
   externalPackageModulesAfter: [
+    {{#useAuth}}
     ExternalModule(AuthPackageModule),
+    {{/useAuth}}    
     ExternalModule(SettingsPackageModule),
   ],
 )

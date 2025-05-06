@@ -1,4 +1,6 @@
+{{#useAuth}}
 import 'package:auth/auth.dart';
+{{/useAuth}}
 import 'package:auto_route/auto_route.dart';
 import 'package:config/config.dart';
 import 'package:core/core.dart';
@@ -13,7 +15,9 @@ abstract class CoreModule {
   AppRouter get appRouter => AppRouter(
         navigatorKey: DialogService.navigatorKey,
         routes: [
+          {{#useAuth}}
           ...AuthRoutes().routes,
+          {{/useAuth}}
           ...MainRoutes().routes,
           RedirectRoute(
             path: '*',

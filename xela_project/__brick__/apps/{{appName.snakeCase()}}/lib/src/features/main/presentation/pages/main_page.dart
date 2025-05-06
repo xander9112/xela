@@ -68,7 +68,7 @@ class _MainPageState extends State<MainPage> {
                 final tabsRouter = AutoTabsRouter.of(context);
                 final meta = tabsRouter.current.router.topPage?.routeData.meta;
 
-                return XelaScaffold(
+                return NeoScaffold(
                   body: Stack(
                     children: [
                       child,

@@ -1,4 +1,6 @@
+{{#useAuth}}
 import 'package:auth/auth.dart';
+{{/useAuth}}
 import 'package:core/core.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:flutter/material.dart';
@@ -160,7 +162,7 @@ class SettingsCubit extends BaseCubit<SettingsState> {
       },
     );
   }
-
+{{#useAuth}}
   Future<void> signOut() async {
     final result = await DialogService.showDialog<bool>(
       child: UiConfirmDialog(
@@ -172,6 +174,7 @@ class SettingsCubit extends BaseCubit<SettingsState> {
       await sl<AuthManager<UserEntity>>().signOut();
     }
   }
+{{/useAuth}}
 
   Future<void> setLocale(Locale? locale) async {
     emit(state.copyWith(locale: locale));

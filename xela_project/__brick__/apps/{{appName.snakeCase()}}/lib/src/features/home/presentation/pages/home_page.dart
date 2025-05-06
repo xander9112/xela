@@ -1,6 +1,8 @@
 // ignore_for_file: lines_longer_than_80_chars
 
+{{#useAuth}}
 import 'package:auth/auth.dart';
+{{/useAuth}}
 import 'package:auto_route/auto_route.dart';
 import 'package:core/core.dart';
 import 'package:{{appName.snakeCase()}}/src/features/home/_home.dart';
@@ -115,6 +117,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(height: Insets.l),
+            {{#useAuth}}
             Padding(
               padding: const EdgeInsets.only(bottom: Insets.l),
               child: ElevatedButton(
@@ -122,6 +125,7 @@ class _HomePageState extends State<HomePage> {
                 child: const Text('Block user'),
               ),
             ),
+            {{/useAuth}}
           ],
         ),
       ),
