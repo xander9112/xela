@@ -3,6 +3,12 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 void run(HookContext context) async {
+   final useAuth = context.vars['useAuth'] as bool;
+
+  if (useAuth) {
+    await _installAuthModule(context);
+  }
+
   await _installPackages(context);
   await _installMelos(context);
   await _runMelos(context);
@@ -53,6 +59,46 @@ Future<void> _runMelos(HookContext context) async {
         'flutter',
         [...commands],
       );
+    },
+  );
+
+  progress.complete();
+}
+
+List<String> _addMasonBrick(String moduleName) => [
+      'add',
+      moduleName.replaceAll('_module', ''),
+      '--git-url',
+      'https://github.com/xander9112/neo_skeleton',
+      '--git-path',
+      moduleName
+    ];
+
+List<String> _installModule(String moduleName) => [
+      'make',
+      moduleName.replaceAll('_module', ''),
+      '--on-conflict',
+      'overwrite',
+      '-o',
+      './modules/${moduleName.replaceAll('_module', '')}'
+    ];
+
+Future<void> _installAuthModule(HookContext context) async {
+  final progress = context.logger.progress('Install authModule project');
+
+  await Process.run('mason', _addMasonBrick('auth_module')).onError(
+    (error, stackTrace) {
+      print('_addMasonBrick error: ${error.toString()}');
+
+      return ProcessResult(pid, exitCode, stdout, stderr);
+    },
+  );
+
+  await Process.run('mason', _installModule('auth_module')).onError(
+    (error, stackTrace) {
+      print('_installModule error: ${error.toString()}');
+
+      return ProcessResult(pid, exitCode, stdout, stderr);
     },
   );
 
