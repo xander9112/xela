@@ -5,6 +5,10 @@ Flutter App Template
 ### Initialize mason
 
 ```bash
+dart pub global activate mason_cli
+```
+
+```bash
 mason init
 ```
 
