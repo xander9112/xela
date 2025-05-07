@@ -1,2 +1,1 @@
-export 'biometric_repository.dart';
-export 'settings_repository.dart';
+export '{{moduleName.snakeCase()}}_repository.dart';

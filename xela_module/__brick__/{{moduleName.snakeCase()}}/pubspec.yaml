@@ -1,5 +1,5 @@
-name: settings
-description: Module.
+name: {{moduleName.snakeCase()}}
+description: {{moduleName.pascalCase()}} Module.
 version: 0.0.1
 publish_to: none
 
