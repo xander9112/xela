@@ -1,2 +1,2 @@
-export 'rest_{{moduleName.snakeCase()}}_data_source.dart';
-export '{{moduleName.snakeCase()}}_data_source.dart';
+export 'rest_super_custom_module_data_source.dart';
+export 'super_custom_module_data_source.dart';

@@ -1,5 +1,3 @@
-abstract class SettingsRoutePath {
-  static const String initial = 'settings';
-  static const String changePinCode = 'pin-code';
-  static const String update = '/update';
+abstract class SuperCustomModuleRoutePath {
+  static const String initial = 'super_custom_module';
 }

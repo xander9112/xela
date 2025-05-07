@@ -1,5 +1,5 @@
-name: {{moduleName.snakeCase()}}
-description: {{moduleName.pascalCase()}} Module.
+name: super_custom_module
+description: SuperCustomModule Module.
 version: 0.0.1
 publish_to: none
 
@@ -9,8 +9,6 @@ environment:
 
 dependencies:
   auto_route: 9.3.0+1
-  config:
-    path: ../../shared/config
   core:
     path: ../../packages/core
   dependencies:
