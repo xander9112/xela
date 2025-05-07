@@ -30,6 +30,10 @@ vars:
     type: string
     description: The name of your feature
     prompt: What is the name of your Feature?
+  package:
+    type: string
+    description: The name of your package
+    prompt: What is the name of your package?
 
   # features:
   #   type: array

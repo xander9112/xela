@@ -1,6 +1,6 @@
 import 'package:dependencies/dependencies.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:{{name.snakeCase()}}/src/_src.dart';
+import 'package:{{package.snakeCase()}}/src/_src.dart';
 
 part '../../../../{{name.snakeCase()}}/data/data_sources/remote/rest_{{name.snakeCase()}}_data_source.g.dart';
 

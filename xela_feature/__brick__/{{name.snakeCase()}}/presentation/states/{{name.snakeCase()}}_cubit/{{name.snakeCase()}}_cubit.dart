@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:{{name.snakeCase()}}/src/_src.dart';
+import 'package:{{package.snakeCase()}}/src/_src.dart';
 
 part '{{name.snakeCase()}}_cubit.freezed.dart';
 part '{{name.snakeCase()}}_state.dart';

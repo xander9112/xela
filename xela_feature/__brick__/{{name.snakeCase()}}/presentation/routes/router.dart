@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:{{name.snakeCase()}}/src/_src.dart';
+import 'package:{{package.snakeCase()}}/src/_src.dart';
 
 part 'router.gr.dart';
 
