@@ -12,9 +12,13 @@ Future<void> _runBuild(HookContext context) async {
   final List<String> commands = [
     'exec',
     '--scope',
-    '${toSnakeCase(context.vars['moduleName'].toString())}', // ошибка в toLowerCase
-    ' -- ',
-    '"dart run build_runner build -d"'
+    '${toSnakeCase(context.vars['moduleName'].toString())}',
+    '--',
+    'dart',
+    'run',
+    'build_runner',
+    'build',
+    '-d',
   ];
 
   context.logger.info(commands.join(' '));
