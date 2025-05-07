@@ -13,7 +13,8 @@ Future<void> _createProject(HookContext context) async {
   String org = context.vars['domain'];
   String projectName = context.vars['appName'];
   List platforms = context.vars['platforms'];
-  String projectPath = '${Platform.pathSeparator}apps${Platform.pathSeparator}$projectName';
+  String projectPath =
+      '${Platform.pathSeparator}apps${Platform.pathSeparator}$projectName';
 
   context.vars['useAuth'] =
       (context.vars['features'] as List).contains('authentication');
@@ -30,17 +31,28 @@ Future<void> _createProject(HookContext context) async {
   ];
 
   // Команда для создания проекта
-  var result = await Process.run('flutter', commands).onError(
+  var result = await Process.run(
+    'flutter',
+    commands,
+    runInShell: Platform.isWindows,
+  ).onError(
     (error, stackTrace) {
       context.logger.err(error.toString());
-      return Process.run('flutter', commands,
+      return Process.run(
+        'flutter',
+        commands,
         runInShell: Platform.isWindows,
       );
     },
   );
 
-  File('$projectPath${Platform.pathSeparator}lib${Platform.pathSeparator}main.dart').deleteSync();
-  File('$projectPath${Platform.pathSeparator}test${Platform.pathSeparator}widget_test.dart').deleteSync();
+  context.logger.warn(
+      '$projectPath${Platform.pathSeparator}lib${Platform.pathSeparator}main.dart');
+
+  File('$projectPath${Platform.pathSeparator}lib${Platform.pathSeparator}main.dart')
+      .deleteSync();
+  File('$projectPath${Platform.pathSeparator}test${Platform.pathSeparator}widget_test.dart')
+      .deleteSync();
   File('$projectPath${Platform.pathSeparator}README.md').deleteSync();
 
   // Выводим результат выполнения команды
