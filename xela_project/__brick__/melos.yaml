@@ -41,7 +41,7 @@ scripts:
       dependsOn:
         - "flutter_launcher_icons"
         - "flutter_flavorizr"
-      scope: "*{{ appName.snakeCase() }}*"
+      scope: "{{ appName.snakeCase() }}"
   generate-locale:
     run: dart scripts/gen_from_arb.dart
     description: "Generate locales from arb."
