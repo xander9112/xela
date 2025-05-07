@@ -71,7 +71,7 @@ List<String> _addMasonBrick(String moduleName) => [
       '--git-url',
       'https://github.com/xander9112/xela',
       '--git-path',
-      moduleName
+      'modules/${moduleName}'
     ];
 
 List<String> _installModule(String moduleName) => [
