@@ -13,7 +13,7 @@ mason init
 ```bash
 mason add xela_project --git-url https://github.com/xander9112/xela --git-path xela_project
 ```
-
+<!-- 
 ### Add Xela Module
 
 ```bash
@@ -24,7 +24,7 @@ mason add xela_module --git-url https://github.com/xander9112/xela --git-path xe
 
 ```bash
 mason add xela_feature --git-url https://github.com/xander9112/xela --git-path xela_feature
-```
+``` -->
 
 ### Создадим дефолтную структуру
 
