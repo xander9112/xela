@@ -1,5 +1,5 @@
 export 'src/data/data_sources/cache/user_security_storage.dart';
-export 'src/di/settings_di.dart';
+export 'src/di/{{moduleName.snakeCase()}}_di.dart';
 export 'src/di/settings_di.module.dart';
 export 'src/domain/models/auth_settings/auth_settings.dart';
 export 'src/domain/models/biometric/biometric_status.dart';
