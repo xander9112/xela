@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'super_custom_module_cubit.dart';
+part of '{{moduleName.snakeCase()}}_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,41 +16,41 @@ final _privateConstructorUsedError = UnsupportedError(
 );
 
 /// @nodoc
-mixin _$SuperCustomModuleState {
+mixin _${{moduleName.pascalCase()}}State {
   String? get error => throw _privateConstructorUsedError;
   FetchStatus get status => throw _privateConstructorUsedError;
 
-  /// Create a copy of SuperCustomModuleState
+  /// Create a copy of {{moduleName.pascalCase()}}State
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SuperCustomModuleStateCopyWith<SuperCustomModuleState> get copyWith =>
+  ${{moduleName.pascalCase()}}StateCopyWith<{{moduleName.pascalCase()}}State> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SuperCustomModuleStateCopyWith<$Res> {
-  factory $SuperCustomModuleStateCopyWith(
-    SuperCustomModuleState value,
-    $Res Function(SuperCustomModuleState) then,
-  ) = _$SuperCustomModuleStateCopyWithImpl<$Res, SuperCustomModuleState>;
+abstract class ${{moduleName.pascalCase()}}StateCopyWith<$Res> {
+  factory ${{moduleName.pascalCase()}}StateCopyWith(
+    {{moduleName.pascalCase()}}State value,
+    $Res Function({{moduleName.pascalCase()}}State) then,
+  ) = _${{moduleName.pascalCase()}}StateCopyWithImpl<$Res, {{moduleName.pascalCase()}}State>;
   @useResult
   $Res call({String? error, FetchStatus status});
 }
 
 /// @nodoc
-class _$SuperCustomModuleStateCopyWithImpl<
+class _${{moduleName.pascalCase()}}StateCopyWithImpl<
   $Res,
-  $Val extends SuperCustomModuleState
+  $Val extends {{moduleName.pascalCase()}}State
 >
-    implements $SuperCustomModuleStateCopyWith<$Res> {
-  _$SuperCustomModuleStateCopyWithImpl(this._value, this._then);
+    implements ${{moduleName.pascalCase()}}StateCopyWith<$Res> {
+  _${{moduleName.pascalCase()}}StateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SuperCustomModuleState
+  /// Create a copy of {{moduleName.pascalCase()}}State
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -74,34 +74,34 @@ class _$SuperCustomModuleStateCopyWithImpl<
 }
 
 /// @nodoc
-abstract class _$$SuperCustomModuleStateImplCopyWith<$Res>
-    implements $SuperCustomModuleStateCopyWith<$Res> {
-  factory _$$SuperCustomModuleStateImplCopyWith(
-    _$SuperCustomModuleStateImpl value,
-    $Res Function(_$SuperCustomModuleStateImpl) then,
-  ) = __$$SuperCustomModuleStateImplCopyWithImpl<$Res>;
+abstract class _$${{moduleName.pascalCase()}}StateImplCopyWith<$Res>
+    implements ${{moduleName.pascalCase()}}StateCopyWith<$Res> {
+  factory _$${{moduleName.pascalCase()}}StateImplCopyWith(
+    _${{moduleName.pascalCase()}}StateImpl value,
+    $Res Function(_${{moduleName.pascalCase()}}StateImpl) then,
+  ) = __$${{moduleName.pascalCase()}}StateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? error, FetchStatus status});
 }
 
 /// @nodoc
-class __$$SuperCustomModuleStateImplCopyWithImpl<$Res>
+class __$${{moduleName.pascalCase()}}StateImplCopyWithImpl<$Res>
     extends
-        _$SuperCustomModuleStateCopyWithImpl<$Res, _$SuperCustomModuleStateImpl>
-    implements _$$SuperCustomModuleStateImplCopyWith<$Res> {
-  __$$SuperCustomModuleStateImplCopyWithImpl(
-    _$SuperCustomModuleStateImpl _value,
-    $Res Function(_$SuperCustomModuleStateImpl) _then,
+        _${{moduleName.pascalCase()}}StateCopyWithImpl<$Res, _${{moduleName.pascalCase()}}StateImpl>
+    implements _$${{moduleName.pascalCase()}}StateImplCopyWith<$Res> {
+  __$${{moduleName.pascalCase()}}StateImplCopyWithImpl(
+    _${{moduleName.pascalCase()}}StateImpl _value,
+    $Res Function(_${{moduleName.pascalCase()}}StateImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of SuperCustomModuleState
+  /// Create a copy of {{moduleName.pascalCase()}}State
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? error = freezed, Object? status = null}) {
     return _then(
-      _$SuperCustomModuleStateImpl(
+      _${{moduleName.pascalCase()}}StateImpl(
         error:
             freezed == error
                 ? _value.error
@@ -119,8 +119,8 @@ class __$$SuperCustomModuleStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuperCustomModuleStateImpl extends _SuperCustomModuleState {
-  const _$SuperCustomModuleStateImpl({
+class _${{moduleName.pascalCase()}}StateImpl extends _{{moduleName.pascalCase()}}State {
+  const _${{moduleName.pascalCase()}}StateImpl({
     this.error,
     this.status = FetchStatus.pure,
   }) : super._();
@@ -133,14 +133,14 @@ class _$SuperCustomModuleStateImpl extends _SuperCustomModuleState {
 
   @override
   String toString() {
-    return 'SuperCustomModuleState(error: $error, status: $status)';
+    return '{{moduleName.pascalCase()}}State(error: $error, status: $status)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuperCustomModuleStateImpl &&
+            other is _${{moduleName.pascalCase()}}StateImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.status, status) || other.status == status));
   }
@@ -148,35 +148,35 @@ class _$SuperCustomModuleStateImpl extends _SuperCustomModuleState {
   @override
   int get hashCode => Object.hash(runtimeType, error, status);
 
-  /// Create a copy of SuperCustomModuleState
+  /// Create a copy of {{moduleName.pascalCase()}}State
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuperCustomModuleStateImplCopyWith<_$SuperCustomModuleStateImpl>
+  _$${{moduleName.pascalCase()}}StateImplCopyWith<_${{moduleName.pascalCase()}}StateImpl>
   get copyWith =>
-      __$$SuperCustomModuleStateImplCopyWithImpl<_$SuperCustomModuleStateImpl>(
+      __$${{moduleName.pascalCase()}}StateImplCopyWithImpl<_${{moduleName.pascalCase()}}StateImpl>(
         this,
         _$identity,
       );
 }
 
-abstract class _SuperCustomModuleState extends SuperCustomModuleState {
-  const factory _SuperCustomModuleState({
+abstract class _{{moduleName.pascalCase()}}State extends {{moduleName.pascalCase()}}State {
+  const factory _{{moduleName.pascalCase()}}State({
     final String? error,
     final FetchStatus status,
-  }) = _$SuperCustomModuleStateImpl;
-  const _SuperCustomModuleState._() : super._();
+  }) = _${{moduleName.pascalCase()}}StateImpl;
+  const _{{moduleName.pascalCase()}}State._() : super._();
 
   @override
   String? get error;
   @override
   FetchStatus get status;
 
-  /// Create a copy of SuperCustomModuleState
+  /// Create a copy of {{moduleName.pascalCase()}}State
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuperCustomModuleStateImplCopyWith<_$SuperCustomModuleStateImpl>
+  _$${{moduleName.pascalCase()}}StateImplCopyWith<_${{moduleName.pascalCase()}}StateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

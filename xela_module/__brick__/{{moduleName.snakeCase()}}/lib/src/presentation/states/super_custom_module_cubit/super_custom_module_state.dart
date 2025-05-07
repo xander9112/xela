@@ -1,11 +1,11 @@
-part of 'super_custom_module_cubit.dart';
+part of '{{moduleName.snakeCase()}}_cubit.dart';
 
 @freezed
-abstract class SuperCustomModuleState with _$SuperCustomModuleState {
-  const factory SuperCustomModuleState({
+abstract class {{moduleName.pascalCase()}}State with _${{moduleName.pascalCase()}}State {
+  const factory {{moduleName.pascalCase()}}State({
     String? error,
     @Default(FetchStatus.pure) FetchStatus status,
-  }) = _SuperCustomModuleState;
+  }) = _{{moduleName.pascalCase()}}State;
 
-  const SuperCustomModuleState._();
+  const {{moduleName.pascalCase()}}State._();
 }

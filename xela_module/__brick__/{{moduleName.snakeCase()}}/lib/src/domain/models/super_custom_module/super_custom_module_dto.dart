@@ -1,16 +1,16 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'super_custom_module_dto.freezed.dart';
-part 'super_custom_module_dto.g.dart';
+part '{{moduleName.snakeCase()}}_dto.freezed.dart';
+part '{{moduleName.snakeCase()}}_dto.g.dart';
 
 @freezed
-abstract class SuperCustomModuleDTO with _$SuperCustomModuleDTO {
-  const factory SuperCustomModuleDTO({String? title}) = _SuperCustomModuleDTO;
+abstract class {{moduleName.pascalCase()}}DTO with _${{moduleName.pascalCase()}}DTO {
+  const factory {{moduleName.pascalCase()}}DTO({String? title}) = _{{moduleName.pascalCase()}}DTO;
 
-  factory SuperCustomModuleDTO.fromJson(Object? json) =>
-      _$SuperCustomModuleDTOFromJson(json! as Map<String, dynamic>);
+  factory {{moduleName.pascalCase()}}DTO.fromJson(Object? json) =>
+      _${{moduleName.pascalCase()}}DTOFromJson(json! as Map<String, dynamic>);
 
-  const SuperCustomModuleDTO._();
+  const {{moduleName.pascalCase()}}DTO._();
 
   @override
   Map<String, dynamic> toJson();

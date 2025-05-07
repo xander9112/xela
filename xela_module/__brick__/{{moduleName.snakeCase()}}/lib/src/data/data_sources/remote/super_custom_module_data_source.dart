@@ -1,1 +1,1 @@
-abstract class SuperCustomModuleDataSource {}
+abstract class {{moduleName.pascalCase()}}DataSource {}

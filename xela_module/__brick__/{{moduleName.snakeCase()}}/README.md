@@ -1,9 +1,9 @@
 Подключить в pubspec.yaml
 
 ```bash
-super_custom_module:
-    path: ../../modules/super_custom_module
+{{moduleName.snakeCase()}}:
+    path: ../../modules/{{moduleName.snakeCase()}}
 ```
 
 Подключить модуль в di в ExternalModule
-Подключить роутер ...SuperCustomModuleRouter().routes,
+Подключить роутер ...{{moduleName.pascalCase()}}Router().routes,

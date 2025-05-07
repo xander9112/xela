@@ -1,1 +1,1 @@
-export 'super_custom_module_repository.dart';
+export '{{moduleName.snakeCase()}}_repository.dart';

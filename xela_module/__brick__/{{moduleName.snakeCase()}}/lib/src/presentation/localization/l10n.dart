@@ -1,9 +1,9 @@
 import 'package:intl/intl.dart';
 
-class SuperCustomModuleI18n {
+class {{moduleName.pascalCase()}}I18n {
   static String get title => Intl.message(
-    'SuperCustomModule',
-    desc: 'SuperCustomModule description',
-    name: 'SuperCustomModuleI18n_title',
+    '{{moduleName.pascalCase()}}',
+    desc: '{{moduleName.pascalCase()}} description',
+    name: '{{moduleName.pascalCase()}}I18n_title',
   );
 }

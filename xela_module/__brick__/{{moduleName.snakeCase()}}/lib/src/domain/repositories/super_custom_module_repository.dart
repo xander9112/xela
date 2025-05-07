@@ -1,1 +1,1 @@
-abstract class SuperCustomModuleRepository {}
+abstract class {{moduleName.pascalCase()}}Repository {}

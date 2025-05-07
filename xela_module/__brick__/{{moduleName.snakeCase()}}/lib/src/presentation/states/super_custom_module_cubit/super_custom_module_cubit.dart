@@ -1,19 +1,19 @@
 import 'package:core/core.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:super_custom_module/src/_src.dart';
+import 'package:{{moduleName.snakeCase()}}/src/_src.dart';
 
-part 'super_custom_module_cubit.freezed.dart';
-part 'super_custom_module_state.dart';
+part '{{moduleName.snakeCase()}}_cubit.freezed.dart';
+part '{{moduleName.snakeCase()}}_state.dart';
 
 @injectable
-class SuperCustomModuleCubit extends BaseCubit<SuperCustomModuleState> {
-  SuperCustomModuleCubit({required SuperCustomModuleRepository repository})
+class {{moduleName.pascalCase()}}Cubit extends BaseCubit<{{moduleName.pascalCase()}}State> {
+  {{moduleName.pascalCase()}}Cubit({required {{moduleName.pascalCase()}}Repository repository})
     : _repository = repository,
 
-      super(const SuperCustomModuleState());
+      super(const {{moduleName.pascalCase()}}State());
 
-  final SuperCustomModuleRepository _repository;
+  final {{moduleName.pascalCase()}}Repository _repository;
 
   @override
   Future<void> init() async {}

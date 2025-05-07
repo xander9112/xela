@@ -2,24 +2,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:super_custom_module/src/_src.dart';
+import 'package:{{moduleName.snakeCase()}}/src/_src.dart';
 
 @RoutePage()
-class SuperCustomModulePage extends StatelessWidget {
-  const SuperCustomModulePage({super.key});
+class {{moduleName.pascalCase()}}Page extends StatelessWidget {
+  const {{moduleName.pascalCase()}}Page({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SuperCustomModuleCubit>(
+    return BlocProvider<{{moduleName.pascalCase()}}Cubit>(
       create: (_) => sl(),
-      child: BlocBuilder<SuperCustomModuleCubit, SuperCustomModuleState>(
+      child: BlocBuilder<{{moduleName.pascalCase()}}Cubit, {{moduleName.pascalCase()}}State>(
         builder: (context, state) {
           return Title(
             color: Colors.black,
-            title: 'SuperCustomModule',
+            title: '{{moduleName.pascalCase()}}',
             child: Scaffold(
-              appBar: AppBar(title: Text(SuperCustomModuleI18n.title)),
-              body: BlocBuilder<SuperCustomModuleCubit, SuperCustomModuleState>(
+              appBar: AppBar(title: Text({{moduleName.pascalCase()}}I18n.title)),
+              body: BlocBuilder<{{moduleName.pascalCase()}}Cubit, {{moduleName.pascalCase()}}State>(
                 builder: (context, state) {
                   return const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

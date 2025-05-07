@@ -1,3 +1,3 @@
-import 'package:super_custom_module/src/_src.dart';
+import 'package:{{moduleName.snakeCase()}}/src/_src.dart';
 
-class MockSuperCustomModuleDataSource implements SuperCustomModuleDataSource {}
+class Mock{{moduleName.pascalCase()}}DataSource implements {{moduleName.pascalCase()}}DataSource {}

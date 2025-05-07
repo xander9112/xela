@@ -1,12 +1,12 @@
 import 'package:dependencies/dependencies.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:super_custom_module/src/_src.dart';
+import 'package:{{moduleName.snakeCase()}}/src/_src.dart';
 
-part 'rest_super_custom_module_data_source.g.dart';
+part 'rest_{{moduleName.snakeCase()}}_data_source.g.dart';
 
 @Injectable()
 @RestApi()
-abstract class RestSuperCustomModuleDataSource implements SuperCustomModuleDataSource {
+abstract class Rest{{moduleName.pascalCase()}}DataSource implements {{moduleName.pascalCase()}}DataSource {
   @factoryMethod
-  factory RestSuperCustomModuleDataSource(Dio dio) = _RestSuperCustomModuleDataSource;
+  factory Rest{{moduleName.pascalCase()}}DataSource(Dio dio) = _Rest{{moduleName.pascalCase()}}DataSource;
 }

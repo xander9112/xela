@@ -11,17 +11,17 @@
 part of 'router.dart';
 
 /// generated route for
-/// [SuperCustomModulePage]
-class SuperCustomModuleRoute extends PageRouteInfo<void> {
-  const SuperCustomModuleRoute({List<PageRouteInfo>? children})
-    : super(SuperCustomModuleRoute.name, initialChildren: children);
+/// [{{moduleName.pascalCase()}}Page]
+class {{moduleName.pascalCase()}}Route extends PageRouteInfo<void> {
+  const {{moduleName.pascalCase()}}Route({List<PageRouteInfo>? children})
+    : super({{moduleName.pascalCase()}}Route.name, initialChildren: children);
 
-  static const String name = 'SuperCustomModuleRoute';
+  static const String name = '{{moduleName.pascalCase()}}Route';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const SuperCustomModulePage();
+      return const {{moduleName.pascalCase()}}Page();
     },
   );
 }

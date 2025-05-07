@@ -1,3 +1,3 @@
-abstract class SuperCustomModuleRoutePath {
-  static const String initial = 'super_custom_module';
+abstract class {{moduleName.pascalCase()}}RoutePath {
+  static const String initial = '{{moduleName.snakeCase()}}';
 }

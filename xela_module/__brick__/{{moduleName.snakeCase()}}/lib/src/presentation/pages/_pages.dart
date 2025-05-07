@@ -1,1 +1,1 @@
-export 'super_custom_module_page.dart';
+export '{{moduleName.snakeCase()}}_page.dart';

@@ -1,1 +1,1 @@
-export 'super_custom_module_cubit/super_custom_module_cubit.dart';
+export '{{moduleName.snakeCase()}}_cubit/{{moduleName.snakeCase()}}_cubit.dart';

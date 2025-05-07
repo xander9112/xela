@@ -1,15 +1,15 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'super_custom_module_dto.dart';
+part of '{{moduleName.snakeCase()}}_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SuperCustomModuleDTOImpl _$$SuperCustomModuleDTOImplFromJson(
+_${{moduleName.pascalCase()}}DTOImpl _$${{moduleName.pascalCase()}}DTOImplFromJson(
   Map<String, dynamic> json,
-) => _$SuperCustomModuleDTOImpl(title: json['title'] as String?);
+) => _${{moduleName.pascalCase()}}DTOImpl(title: json['title'] as String?);
 
-Map<String, dynamic> _$$SuperCustomModuleDTOImplToJson(
-  _$SuperCustomModuleDTOImpl instance,
+Map<String, dynamic> _$${{moduleName.pascalCase()}}DTOImplToJson(
+  _${{moduleName.pascalCase()}}DTOImpl instance,
 ) => <String, dynamic>{'title': instance.title};
