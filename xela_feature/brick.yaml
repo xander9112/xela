@@ -26,10 +26,10 @@ environment:
 #  * a list of values (enums only)
 #  * an optional separator (list only)
 vars:
-  moduleName:
+  name:
     type: string
-    description: The name of your module
-    prompt: What is the name of your module?
+    description: The name of your feature
+    prompt: What is the name of your Feature?
 
   # features:
   #   type: array
