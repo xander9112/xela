@@ -14,7 +14,7 @@ Future<void> _createProject(HookContext context) async {
   String projectName = context.vars['appName'];
   List platforms = context.vars['platforms'];
   String projectPath =
-      '${Platform.pathSeparator}apps${Platform.pathSeparator}$projectName';
+      '.${Platform.pathSeparator}apps${Platform.pathSeparator}$projectName';
 
   context.vars['useAuth'] =
       (context.vars['features'] as List).contains('authentication');
