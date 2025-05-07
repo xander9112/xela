@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '{{moduleName.snakeCase()}}_dto.freezed.dart';
-part '{{moduleName.snakeCase()}}_dto.g.dart';
+part '../super_custom_module/{{moduleName.snakeCase()}}_dto.freezed.dart';
+part '../super_custom_module/{{moduleName.snakeCase()}}_dto.g.dart';
 
 @freezed
 abstract class {{moduleName.pascalCase()}}DTO with _${{moduleName.pascalCase()}}DTO {
