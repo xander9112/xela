@@ -51,7 +51,8 @@ class SettingsCubit extends BaseCubit<SettingsState> {
   final SetLocalAuthUseCase setLocalAuthUseCase;
 
   final GetLocalAuthUseCase getLocalAuthUseCase;
-
+  
+  @override
   Future<void> init() async {
     final biometricSupportModel = await _getBiometricSupportModel();
 
