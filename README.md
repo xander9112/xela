@@ -35,3 +35,15 @@ mason add xela_feature --git-url https://github.com/xander9112/xela --git-path x
 ```bash
 mason make xela_project --on-conflict overwrite
 ```
+
+### Создаем новый модуль
+
+```bash
+mason make xela_module -o modules
+```
+### Создаем новую фичу
+
+```bash
+mason make xela_feature -o modules/название_модуля/features/название_фичи
+```
+
