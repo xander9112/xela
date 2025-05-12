@@ -16,6 +16,7 @@ void run(HookContext context) async {
   if (outputDir.path.split(Platform.pathSeparator).last == 'lib') {
     context.vars['package_path'] =
         '${package}/${toSnakeCase(name)}';
+    context.logger.info('Новый путь: ${context.vars['package_path']}');
   } else {
     context.logger.info('Название пакета: ${package}');
     context.logger.info('Путь генерации: ${outputDir.path}');

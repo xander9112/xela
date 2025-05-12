@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:{{package.snakeCase()}}/src/_src.dart';
+import 'package:{{{package_path}}}/{{name}}.dart';
 
 @RoutePage()
 class {{name.pascalCase()}}Page extends StatelessWidget {
