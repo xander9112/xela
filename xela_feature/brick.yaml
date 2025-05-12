@@ -30,18 +30,11 @@ vars:
     type: string
     description: The name of your feature
     prompt: What is the name of your Feature?
-  package:
-    type: string
-    description: The name of your package
-    prompt: What is the name of your package?
-
-  # features:
-  #   type: array
-  #   description: Select the features you want to include
-  #   defaults:
-  #     - authentication
-  #   values:
-  #     - authentication
-  #     # - push notifications
-  #     # - in-app purchases
-  #   prompt: Which features would you like to include in your application?
+  useDI:
+    type: boolean
+    prompt: Do you want to use DI?
+    default: false
+  buildAfterInstall:
+    type: boolean
+    prompt: Do you want to build package?
+    default: false

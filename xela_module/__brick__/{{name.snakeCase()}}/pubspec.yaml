@@ -1,5 +1,5 @@
-name: {{moduleName.snakeCase()}}
-description: {{moduleName.pascalCase()}} Module.
+name: {{name.snakeCase()}}
+description: {{name.pascalCase()}} Module.
 version: 0.0.1
 publish_to: none
 

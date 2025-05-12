@@ -26,10 +26,13 @@ environment:
 #  * a list of values (enums only)
 #  * an optional separator (list only)
 vars:
-  moduleName:
+  name:
     type: string
     description: The name of your module
     prompt: What is the name of your module?
+  isMultiple:
+    type: boolean
+    description: Use core and features folders    
 
   # features:
   #   type: array

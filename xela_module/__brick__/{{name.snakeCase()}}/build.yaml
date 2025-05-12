@@ -1,0 +1,50 @@
+{{#isMultiple}}
+targets:
+  $default:
+    builders:
+      auto_route_generator:auto_route_generator:
+        generate_for:
+          include:
+            - lib/core/presentation/pages/**.dart
+            - lib/features/**/presentation/pages/**.dart
+      auto_route_generator:auto_router_generator:
+        generate_for:
+          include:
+            - lib/core/presentation/routes/**.dart
+            - lib/features/**/presentation/routes/**.dart
+      freezed:freezed:
+        generate_for:
+          include:
+            - lib/core/presentation/states/**/**.dart
+            - lib/features/**/presentation/states/**/**.dart
+            - lib/core/domain/models/**.dart
+            - lib/features/**/domain/models/**.dart
+            - lib/core/data/data_sources/**.dart
+            - lib/features/**/data/data_sources/**.dart
+      retrofit_generator|retrofit_generator:
+        generate_for:
+          - lib/core/data/data_sources/remote/**.dart
+          - lib/features/**/data/data_sources/remote/**.dart
+{{/isMultiple}}
+{{^isMultiple}}
+targets:
+  $default:
+    builders:
+      auto_route_generator:auto_route_generator:
+        generate_for:
+          include:
+            - lib/presentation/pages/**.dart
+      auto_route_generator:auto_router_generator:
+        generate_for:
+          include:
+            - lib/presentation/routes/**.dart
+      freezed:freezed:
+        generate_for:
+          include:
+            - lib/presentation/states/**/**.dart
+            - lib/domain/models/**.dart
+            - lib/data/data_sources/**.dart
+      retrofit_generator|retrofit_generator:
+        generate_for:
+          - lib/data/data_sources/remote/**.dart
+{{/isMultiple}}

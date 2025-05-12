@@ -1,18 +1,38 @@
 import 'dart:io';
 
 import 'package:mason/mason.dart';
+import 'package:path/path.dart' as p;
+
+import 'utils.dart';
 
 void run(HookContext context) async {
-  await _runBuild(context);
+  final buildAfterInstall = context.vars['buildAfterInstall'] as bool;
+  final useDI = context.vars['useDI'] as bool;
+
+  if (buildAfterInstall) {
+    await _runBuild(context);
+  }
+
+  if (!useDI) {
+    final directory = Directory(p.join(Directory.current.path, 'di'));
+
+    if (directory.existsSync()) {
+      directory.deleteSync(recursive: true);
+    } else {
+      warnMessage(context, 'Папка di не найдена.');
+    }
+  }
 }
 
 Future<void> _runBuild(HookContext context) async {
   final progress = context.logger.progress('Build');
 
+  final package = getPackageName(context);
+
   final List<String> commands = [
     'exec',
     '--scope',
-    '${toSnakeCase(context.vars['moduleName'].toString())}',
+    '${package}',
     '--',
     'dart',
     'run',
@@ -21,44 +41,9 @@ Future<void> _runBuild(HookContext context) async {
     '-d',
   ];
 
+  successMessage(context, commands.join(' '));
+
   await Process.run('melos', commands);
 
   progress.complete();
-}
-
-String toCamelCase(String input) {
-  final words = input
-      .toLowerCase()
-      .split(RegExp(r'[^a-zA-Z0-9]+'))
-      .where((w) => w.isNotEmpty)
-      .toList();
-
-  if (words.isEmpty) return '';
-
-  return words.first + words.skip(1).map((w) => _capitalize(w)).join();
-}
-
-String toPascalCase(String input) {
-  final words = input
-      .toLowerCase()
-      .split(RegExp(r'[^a-zA-Z0-9]+'))
-      .where((w) => w.isNotEmpty)
-      .toList();
-
-  return words.map((w) => _capitalize(w)).join();
-}
-
-String _capitalize(String word) {
-  if (word.isEmpty) return '';
-  return word[0].toUpperCase() + word.substring(1);
-}
-
-String toSnakeCase(String input) {
-  final regex = RegExp(r'(?<=[a-z])[A-Z]');
-  return input
-      .replaceAllMapped(regex, (match) => '_${match.group(0)}')
-      .toLowerCase()
-      .replaceAll(RegExp(r'[^a-z0-9_]+'), '_')
-      .replaceAll(RegExp(r'_+'), '_') // чтобы не было двойных __
-      .replaceAll(RegExp(r'^_+|_+$'), ''); // убрать _ в начале и конце
 }

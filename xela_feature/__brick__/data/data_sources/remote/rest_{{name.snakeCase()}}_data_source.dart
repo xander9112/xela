@@ -1,6 +1,6 @@
 import 'package:dependencies/dependencies.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:{{{package_path}}}/{{name}}.dart';
+import 'package:{{{package_path}}}/_{{name}}.dart';
 
 part 'rest_{{name.snakeCase()}}_data_source.g.dart';
 
@@ -8,5 +8,5 @@ part 'rest_{{name.snakeCase()}}_data_source.g.dart';
 @RestApi()
 abstract class Rest{{name.pascalCase()}}DataSource implements {{name.pascalCase()}}DataSource {
   @factoryMethod
-  factory Rest{{moduleName.pascalCase()}}DataSource(Dio dio) = _Rest{{moduleName.pascalCase()}}DataSource;
+  factory Rest{{name.pascalCase()}}DataSource(Dio dio) = _Rest{{name.pascalCase()}}DataSource;
 }
