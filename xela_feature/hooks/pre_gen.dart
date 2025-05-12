@@ -7,8 +7,7 @@ void run(HookContext context) async {
   final outputDir = Directory.current;
   final packageName = getPackageName(context);
 
-  final packagePathList = outputDir.path.split('$packageName/lib')
-    ..removeAt(0);
+  final packagePathList = outputDir.path.split('$packageName/lib')..removeAt(0);
 
   context.vars['package_path'] = '$packageName${packagePathList.last}';
 }

@@ -44,6 +44,6 @@ mason make xela_module -o modules
 ### Создаем новую фичу
 
 ```bash
-mason make xela_feature -o modules/название_модуля/features/название_фичи
+mason make xela_feature -o modules/название_модуля/lib/features/название_фичи
 ```
 

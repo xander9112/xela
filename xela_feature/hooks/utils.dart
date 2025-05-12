@@ -57,6 +57,6 @@ String getPackageName(HookContext context) {
   final List<String> pathList = outputDir.path.split('lib');
   final packageNameList = pathList[0].split('/')..removeWhere((e) => e.isEmpty);
   final packageName = packageNameList.last;
-
+    
   return packageName;
 }
