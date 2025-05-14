@@ -27,6 +27,7 @@ instructions:
     "assets:extract",
     "android:androidManifest",
     "android:buildGradle",
+    "android:flavorizrGradle",
     "android:dummyAssets",
     "android:icons",
     "ios:podfile",
