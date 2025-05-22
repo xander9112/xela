@@ -66,10 +66,10 @@ scripts:
       dependsOn:
         - "build_runner"
   build-android:
-    run: melos exec -- "flutter build appbundle --release --flavor=prod && flutter build apk --release --flavor=prod"
+    run: melos exec -- "dart scripts/build.dart"
     description: "Run build android in Jnp Mobile."
     packageFilters:
-      scope: "*jnp_mobile*"
+      scope: "{{ appName.snakeCase() }}"
   build-admin:
     run: melos exec -- "flutter build web --dart-define=flavor=${FLAVOR}"
     description: "Run build android in Jnp Mobile."
