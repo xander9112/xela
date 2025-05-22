@@ -65,8 +65,13 @@ scripts:
         - "*config*"
       dependsOn:
         - "build_runner"
-  build-android:
-    run: melos exec -- "dart scripts/build.dart"
+  build-android-apk:
+    run: melos exec -- "dart scripts/build.dart apk"
+    description: "Run build android in Jnp Mobile."
+    packageFilters:
+      scope: "{{ appName.snakeCase() }}"
+  build-android-aab:
+    run: melos exec -- "dart scripts/build.dart aab"
     description: "Run build android in Jnp Mobile."
     packageFilters:
       scope: "{{ appName.snakeCase() }}"

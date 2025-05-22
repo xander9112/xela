@@ -4,7 +4,13 @@ import 'dart:io';
 
 import 'package:path/path.dart' as p;
 
-void main() async {
+void main(List<String> args) async {
+  String buildType = 'apk';
+
+  if (args.isNotEmpty && (args[0] == 'apk' || args[0] == 'aab')) {
+    buildType = args[0];
+  }
+
   final file = File('pubspec.yaml');
 
   if (!file.existsSync()) {
@@ -37,25 +43,21 @@ void main() async {
 
   await file.writeAsString(updatedLines.join('\n'));
 
-  await _build('prod');
-  await _build('dev');
+  await _build('prod', buildType);
+  await _build('dev', buildType);
 
-  await _rename(appVersion);
+  await _rename(appVersion, buildType);
 }
 
-Future<void> _build(String type) async {
+Future<void> _build(String type, String buildType) async {
   print('Начало сборки $type');
 
-  final process = await Process.start(
-    'flutter',
-    [
-      'build',
-      'apk',
-      '--release',
-      '--flavor=$type',
-    ],
-    runInShell: true,
-  );
+  final process = await Process.start('flutter', [
+    'build',
+    buildType,
+    '--release',
+    '--flavor=$type',
+  ], runInShell: true);
 
   // Читаем stdout
   process.stdout.transform(const SystemEncoding().decoder).listen((data) {
@@ -75,18 +77,74 @@ Future<void> _build(String type) async {
   }
 }
 
-Future<void> _rename(String appVersion) async {
-  final apkFolderPath =
-      p.join(Directory.current.path, 'build', 'app', 'outputs', 'flutter-apk');
+Future<void> _rename(String appVersion, String buildType) async {
+  if (buildType == 'apk') {
+    await _renameAPK(appVersion);
+  }
+
+  if (buildType == 'aab') {
+    await _renameAAB(appVersion);
+  }
+}
+
+Future<void> _renameAPK(String appVersion) async {
+  final apkFolderPath = p.join(
+    Directory.current.path,
+    'build',
+    'app',
+    'outputs',
+    'flutter-apk',
+  );
 
   final prodBuildPath = p.join(apkFolderPath, 'app-prod-release.apk');
   final devBuildPath = p.join(apkFolderPath, 'app-dev-release.apk');
 
-  await File(prodBuildPath)
-      .rename(p.join(apkFolderPath, 'app_prod_release_$appVersion.apk'));
+  if (File(prodBuildPath).existsSync()) {
+    await File(
+      prodBuildPath,
+    ).rename(p.join(apkFolderPath, 'app_prod_release_$appVersion.apk'));
+  }
 
-  await File(devBuildPath)
-      .rename(p.join(apkFolderPath, 'app_dev_release_$appVersion.apk'));
+  if (File(devBuildPath).existsSync()) {
+    await File(
+      devBuildPath,
+    ).rename(p.join(apkFolderPath, 'app_dev_release_$appVersion.apk'));
+  }
+
+  print('✅ Файлы успешно переименованы!');
+}
+
+Future<void> _renameAAB(String appVersion) async {
+  final aabFolderPath = p.join(
+    Directory.current.path,
+    'build',
+    'app',
+    'outputs',
+    'bundle',
+  );
+
+  final prodBuildPath = p.join(
+    aabFolderPath,
+    'prodRelease',
+    'app-prod-release.aab',
+  );
+  final devBuildPath = p.join(
+    aabFolderPath,
+    'devRelease',
+    'app-dev-release.aab',
+  );
+
+  if (File(prodBuildPath).existsSync()) {
+    await File(prodBuildPath).rename(
+      p.join(aabFolderPath, 'prodRelease', 'app_prod_release_$appVersion.aab'),
+    );
+  }
+
+  if (File(devBuildPath).existsSync()) {
+    await File(devBuildPath).rename(
+      p.join(aabFolderPath, 'devRelease', 'app_dev_release_$appVersion.aab'),
+    );
+  }
 
   print('✅ Файлы успешно переименованы!');
 }
