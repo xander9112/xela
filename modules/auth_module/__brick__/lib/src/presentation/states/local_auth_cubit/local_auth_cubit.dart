@@ -22,14 +22,14 @@ class LocalAuthCubit extends BaseCubit<LocalAuthState> {
     required SetBiometryUseCase setBiometryUseCase,
     required CheckBiometryUseCase checkBiometryUseCase,
     required GetBiometricSupportModel getBiometricSupportModel,
-  })  : _manager = manager,
-        _checkLocalAuthUseCase = checkLocalAuthUseCase,
-        _setPinCodeUseCase = setPinCodeUseCase,
-        _checkPinCodeUseCase = checkPinCodeUseCase,
-        _setBiometryUseCase = setBiometryUseCase,
-        _checkBiometryUseCase = checkBiometryUseCase,
-        _getBiometricSupportModel = getBiometricSupportModel,
-        super(const LocalAuthState.initial());
+  }) : _manager = manager,
+       _checkLocalAuthUseCase = checkLocalAuthUseCase,
+       _setPinCodeUseCase = setPinCodeUseCase,
+       _checkPinCodeUseCase = checkPinCodeUseCase,
+       _setBiometryUseCase = setBiometryUseCase,
+       _checkBiometryUseCase = checkBiometryUseCase,
+       _getBiometricSupportModel = getBiometricSupportModel,
+       super(const LocalAuthState.initial());
 
   final AuthManager<UserEntity> _manager;
 
@@ -87,10 +87,7 @@ class LocalAuthCubit extends BaseCubit<LocalAuthState> {
         pin1 = pinCode;
 
         emit(
-          LocalAuthState.createPin(
-            confirm: true,
-            length: Env.pinCodeLength,
-          ),
+          LocalAuthState.createPin(confirm: true, length: Env.pinCodeLength),
         );
       } else {
         emit(
@@ -139,69 +136,53 @@ class LocalAuthCubit extends BaseCubit<LocalAuthState> {
   }
 
   Future<void> enterPin(String pinCode, void Function(bool)? onResult) async {
-    emit(
-      state.maybeMap(
-        orElse: () => state,
-        enterPin: (value) => value.copyWith(
+    if (state is LocalAuthEnterPin) {
+      emit(
+        (state as LocalAuthEnterPin).copyWith(
           status: FetchStatus.fetchingInProgress,
           error: null,
         ),
-      ),
-    );
+      );
 
-    final result = await _checkPinCodeUseCase(
-      CheckPinCodeUseCaseParams(
-        code: pinCode,
-        blockIfError: state.maybeWhen(
-          orElse: () => false,
-          enterPin: (
-            BiometricSupportModel biometricSupportModel,
-            String? error,
-            int length,
-            int errorCount,
-            FetchStatus status,
-          ) {
-            return errorCount == 2;
-          },
+      final result = await _checkPinCodeUseCase(
+        CheckPinCodeUseCaseParams(
+          code: pinCode,
+          blockIfError: (state as LocalAuthEnterPin).errorCount == 2,
         ),
-      ),
-    );
+      );
 
-    final biometricSupportModel = await _getBiometricSupportModel();
+      final biometricSupportModel = await _getBiometricSupportModel();
 
-    result.fold(
+      result.fold(
         (failure) => emit(
-              LocalAuthState.enterPin(
-                error: AuthI18n.unknownError,
-                biometricSupportModel: biometricSupportModel,
-              ),
-            ), (isSuccess) async {
-      if (isSuccess) {
-        await Future<void>.delayed(const Duration(seconds: 1));
+          LocalAuthState.enterPin(
+            error: AuthI18n.unknownError,
+            biometricSupportModel: biometricSupportModel,
+          ),
+        ),
+        (isSuccess) async {
+          if (isSuccess) {
+            await Future<void>.delayed(const Duration(seconds: 1));
 
-        emit(const LocalAuthState.success());
-      } else {
-        state.maybeWhen(
-          orElse: () {},
-          enterPin: (
-            BiometricSupportModel biometricSupportModel,
-            String? error,
-            int length,
-            int errorCount,
-            FetchStatus status,
-          ) {
-            emit(
-              LocalAuthState.enterPin(
-                biometricSupportModel: biometricSupportModel,
-                error: AuthI18n.invalidPin,
-                length: length,
-                errorCount: errorCount + 1,
-              ),
-            );
-          },
-        );
-      }
-    });
+            emit(const LocalAuthState.success());
+          } else {
+            if (state case LocalAuthEnterPin(
+              :final int length,
+              :final int errorCount,
+            )) {
+              emit(
+                LocalAuthState.enterPin(
+                  biometricSupportModel: biometricSupportModel,
+                  error: AuthI18n.invalidPin,
+                  length: length,
+                  errorCount: errorCount + 1,
+                ),
+              );
+            }
+          }
+        },
+      );
+    }
   }
 
   Future<void> resetPinCode() async {
@@ -213,13 +194,13 @@ class LocalAuthCubit extends BaseCubit<LocalAuthState> {
     );
 
     if (result ?? false) {
-      emit(
-        state.maybeMap(
-          orElse: () => state,
-          enterPin: (value) =>
-              value.copyWith(status: FetchStatus.fetchingInProgress),
-        ),
-      );
+      if (state is LocalAuthEnterPin) {
+        emit(
+          (state as LocalAuthEnterPin).copyWith(
+            status: FetchStatus.fetchingInProgress,
+          ),
+        );
+      }
 
       await _manager.signOut();
 
@@ -229,9 +210,7 @@ class LocalAuthCubit extends BaseCubit<LocalAuthState> {
 
   void biometricAuth(void Function(bool)? onResult) {
     unawaited(
-      _checkBiometryUseCase(
-        CheckBiometryUseCaseParam(onResult: onResult),
-      ),
+      _checkBiometryUseCase(CheckBiometryUseCaseParam(onResult: onResult)),
     );
   }
 }

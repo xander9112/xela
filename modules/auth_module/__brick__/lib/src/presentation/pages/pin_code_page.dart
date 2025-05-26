@@ -29,69 +29,83 @@ class PinCodePage extends StatelessWidget {
               Expanded(
                 child: BlocConsumer<LocalAuthCubit, LocalAuthState>(
                   listener: (context, state) {
-                    state.mapOrNull(
-                      success: (value) {
-                        onResult?.call(true);
-                      },
-                      resetPinCode: (value) async {
-                        onResult?.call(false);
+                    //                     switch (state) {
+                    //   LocalAuthInitialState() => print('Person $name'),
+                    //   LocalAuthSuccessState(:final name) => print('Person $name'),
+                    //   LocalAuthResetPinState(:final population) => print('City ($population)'),
 
-                        AppInitializer.updateKey();
-                      },
-                    );
+                    // }
+
+                    if (state case LocalAuthSuccessState()) {
+                      onResult?.call(true);
+                    } else if (state case LocalAuthResetPinState()) {
+                      onResult?.call(false);
+
+                      AppInitializer.updateKey();
+                    }
                   },
                   builder: (context, state) {
-                    return state.when(
-                      initial: UiProgressIndicator.new,
-                      success: () => const UiProgressIndicator(),
-                      resetPinCode: () => GestureDetector(
+                    if (state case LocalAuthResetPinState()) {
+                      return GestureDetector(
                         onTap: () {
                           onResult?.call(false);
                           context.router.replaceNamed('/');
                         },
                         child: const UiProgressIndicator(),
-                      ),
-                      createPin: (message, confirm, length, status) =>
-                          PinCodeCreateForm(
+                      );
+                    }
+
+                    if (state case LocalAuthCreatePin(
+                      :final String? error,
+                      :final bool confirm,
+                      :final int length,
+                    )) {
+                      return PinCodeCreateForm(
                         key: UniqueKey(),
                         isConfirm: confirm,
-                        message: message,
+                        message: error,
                         pinCodeLength: length,
                         onComplete: (pinCode) {
-                          context
-                              .read<LocalAuthCubit>()
-                              .createPin(pinCode, onResult);
+                          context.read<LocalAuthCubit>().createPin(
+                            pinCode,
+                            onResult,
+                          );
                         },
-                      ),
-                      enterPin: (
-                        biometricSupportModel,
-                        message,
-                        length,
-                        errorCount,
-                        status,
-                      ) =>
-                          PinCodeEnterForm(
+                      );
+                    }
+
+                    if (state case LocalAuthEnterPin(
+                      :final biometricSupportModel,
+                      :final String? error,
+                      :final length,
+                      :final status,
+                    )) {
+                      return PinCodeEnterForm(
                         isLoading: status.isFetchingInProgress,
-                        message: message,
+                        message: error,
                         pinCodeLength: length,
-                        useBiometric: biometricSupportModel.status ==
+                        useBiometric:
+                            biometricSupportModel.status ==
                                 BiometricStatus.available &&
                             (biometricSupportModel.useBiometric ?? false),
                         isFace: biometricSupportModel.isFace,
                         onBiometricPressed: () {
                           context.read<LocalAuthCubit>().biometricAuth(
-                                onResult,
-                              );
+                            onResult,
+                          );
                         },
                         onPressedReset:
                             context.read<LocalAuthCubit>().resetPinCode,
                         onComplete: (pinCode) async {
-                          await context
-                              .read<LocalAuthCubit>()
-                              .enterPin(pinCode, onResult);
+                          await context.read<LocalAuthCubit>().enterPin(
+                            pinCode,
+                            onResult,
+                          );
                         },
-                      ),
-                    );
+                      );
+                    }
+
+                    return const UiProgressIndicator();
                   },
                 ),
               ),

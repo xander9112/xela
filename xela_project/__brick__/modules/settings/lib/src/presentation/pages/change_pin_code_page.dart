@@ -21,44 +21,47 @@ class ChangePinCodePage extends StatelessWidget {
             Expanded(
               child: BlocConsumer<ChangePinCodeCubit, ChangePinCodeState>(
                 listener: (context, state) {
-                  state.when(
-                    initial: () {},
-                    success: () {
-                      Navigator.of(context).pop(true);
-                    },
-                    enterPin: (value, length) {},
-                    createPin: (error, confirm, length) {},
-                  );
+                  if (state case ChangePinCodeState.success) {
+                    Navigator.of(context).pop(true);
+                  }
                 },
                 builder: (context, state) {
-                  return state.when(
-                    initial: SizedBox.shrink,
-                    success: SizedBox.shrink,
-                    enterPin: (error, length) {
-                      return Stack(
-                        children: [
-                          PinCodeEnterForm(
-                            message: error,
-                            pinCodeLength: length,
-                            onComplete: (value) async {
-                              await context
-                                  .read<ChangePinCodeCubit>()
-                                  .enterPin(value, null);
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                    createPin: (message, confirm, length) => PinCodeCreateForm(
+                  if (state case ChangePinCodeEnterPin(
+                    :final String? error,
+                    :final int length,
+                  )) {
+                    return Stack(
+                      children: [
+                        PinCodeEnterForm(
+                          message: error,
+                          pinCodeLength: length,
+                          onComplete: (value) async {
+                            await context.read<ChangePinCodeCubit>().enterPin(
+                              value,
+                              null,
+                            );
+                          },
+                        ),
+                      ],
+                    );
+                  }
+                  if (state case ChangePinCodeCreatePin(
+                    :final String? error,
+                    :final bool confirm,
+                    :final int length,
+                  )) {
+                    return PinCodeCreateForm(
                       key: UniqueKey(),
                       isConfirm: confirm,
-                      message: message,
+                      message: error,
                       pinCodeLength: length,
                       onComplete: (pinCode) {
                         context.read<ChangePinCodeCubit>().createPin(pinCode);
                       },
-                    ),
-                  );
+                    );
+                  }
+
+                  return const SizedBox.shrink();
                 },
               ),
             ),

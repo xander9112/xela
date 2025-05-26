@@ -43,14 +43,16 @@ void main(List<String> args) async {
 
   await file.writeAsString(updatedLines.join('\n'));
 
-  await _build('prod', buildType);
-  await _build('dev', buildType);
+  await _build('production', buildType);
+  await _build('development', buildType);
 
   await _rename(appVersion, buildType);
 }
 
 Future<void> _build(String type, String buildType) async {
-  print('Начало сборки $type');
+  print(
+    'Начало сборки flutter ${['build', buildType, '--release', '--flavor=$type'].join(' ')}',
+  );
 
   final process = await Process.start('flutter', [
     'build',
@@ -96,8 +98,8 @@ Future<void> _renameAPK(String appVersion) async {
     'flutter-apk',
   );
 
-  final prodBuildPath = p.join(apkFolderPath, 'app-prod-release.apk');
-  final devBuildPath = p.join(apkFolderPath, 'app-dev-release.apk');
+  final prodBuildPath = p.join(apkFolderPath, 'app-production-release.apk');
+  final devBuildPath = p.join(apkFolderPath, 'app-development-release.apk');
 
   if (File(prodBuildPath).existsSync()) {
     await File(
@@ -126,12 +128,12 @@ Future<void> _renameAAB(String appVersion) async {
   final prodBuildPath = p.join(
     aabFolderPath,
     'prodRelease',
-    'app-prod-release.aab',
+    'app-production-release.aab',
   );
   final devBuildPath = p.join(
     aabFolderPath,
     'devRelease',
-    'app-dev-release.aab',
+    'app-development-release.aab',
   );
 
   if (File(prodBuildPath).existsSync()) {
