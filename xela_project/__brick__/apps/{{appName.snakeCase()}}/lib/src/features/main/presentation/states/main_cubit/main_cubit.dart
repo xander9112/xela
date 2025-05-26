@@ -17,7 +17,6 @@ class MainCubit extends BaseCubit<MainState> {
 
   final EventBus _eventBus;
 
-  @override
   Future<void> init() async {
     emit(state.copyWith(status: FetchStatus.fetchingInProgress));
 
