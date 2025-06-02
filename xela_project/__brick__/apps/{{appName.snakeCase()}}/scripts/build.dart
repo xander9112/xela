@@ -59,6 +59,7 @@ Future<void> _build(String type, String buildType) async {
     buildType,
     '--release',
     '--flavor=$type',
+    '--target=lib/main_$type.dart',
   ], runInShell: true);
 
   // Читаем stdout
