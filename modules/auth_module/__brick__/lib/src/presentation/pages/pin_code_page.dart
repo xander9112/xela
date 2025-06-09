@@ -49,7 +49,7 @@ class PinCodePage extends StatelessWidget {
                       return GestureDetector(
                         onTap: () {
                           onResult?.call(false);
-                          context.router.replaceNamed('/');
+                          context.router.replacePath('/');
                         },
                         child: const UiProgressIndicator(),
                       );

@@ -17,7 +17,7 @@ class _UpdatePageState extends State<UpdatePage> {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
         if (!context.read<SettingsCubit>().state.hasUpdate) {
-          context.router.replaceNamed('/');
+          context.router.replacePath('/');
         }
       },
     );

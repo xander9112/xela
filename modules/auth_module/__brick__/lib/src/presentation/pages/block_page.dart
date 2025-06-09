@@ -14,7 +14,7 @@ class BlockPage extends StatelessWidget {
 
   void _redirect(BuildContext context) {
     if (onResult == null) {
-      context.router.replaceNamed('/');
+      context.router.replacePath('/');
 
       AppInitializer.updateKey();
     } else {
