@@ -5,7 +5,7 @@
 //   SettingsRouter(super.router);
 
 //   Future<void> goToCreateStory() async {
-//     await pushNamed(SettingsRoutePath.create);
+//     await pushPath(SettingsRoutePath.create);
 //   }
 
 //   void goToStory(String login, int id) {
@@ -16,7 +16,7 @@
 //   }
 
 //   Future<void> goToStoryReaction(String login, int id) async {
-//     await pushNamed(
+//     await pushPath(
 //       SettingsRoutePath.storyReaction
 //           .params(<String, dynamic>{'login': login, 'id': id}),
 //     );

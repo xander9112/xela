@@ -20,7 +20,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends LoadingState<LoginPage> {
   void onFinish(BuildContext context) {
     if (widget.onResult == null) {
-      context.router.pushNamed('/');
+      context.router.pushPath('/');
     } else {
       widget.onResult?.call(true);
     }

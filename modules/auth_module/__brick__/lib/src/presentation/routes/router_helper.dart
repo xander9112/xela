@@ -6,6 +6,6 @@ class AuthRouterHelper {
   final AppRouter _router;
 
   Future<void> goToMain([bool shouldRemoveLast = false]) async {
-    await _router.pushNamed(_router.initialRoute);
+    await _router.pushPath(_router.initialRoute);
   }
 }
