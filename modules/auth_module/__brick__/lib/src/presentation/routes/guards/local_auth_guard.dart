@@ -24,7 +24,7 @@ class LocalAuthGuard extends AutoRouteGuard {
       return;
     }
 
-    await resolver.redirect(
+    await resolver.redirectUntil(
       PinCodeRoute(
         useAppBar: useAppBar,
         onResult: resolver.nextOrBack,

@@ -21,7 +21,7 @@ class AuthGuard extends AutoRouteGuard {
       return;
     }
 
-    await resolver.redirect(
+    await resolver.redirectUntil(
       LoginRoute(
         useAppBar: useAppBar,
         onResult: resolver.next,

@@ -15,7 +15,7 @@ class BlockAuthGuard extends AutoRouteGuard {
       return resolver.next();
     }
 
-    await resolver.redirect(
+    await resolver.redirectUntil(
       BlockRoute(onResult: resolver.next),
     );
   }
