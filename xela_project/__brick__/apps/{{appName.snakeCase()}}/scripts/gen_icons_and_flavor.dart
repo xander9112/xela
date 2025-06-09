@@ -17,12 +17,6 @@ void main(List<String> arguments) async {
     return;
   }
 
-  final resultFlutterSplashScreen = await _genSplashScreen();
-
-  if (!resultFlutterSplashScreen) {
-    return;
-  }
-
   await _replaceIcons();
 }
 
@@ -54,25 +48,6 @@ Future<bool> _genFlavor() async {
 
   if (result.exitCode != 0) {
     print('Ошибка при выполнении flutter_flavorizr: ${result.stderr}');
-
-    return false;
-  }
-
-  return true;
-}
-
-Future<bool> _genSplashScreen() async {
-  final result = await Process.run(
-    'dart',
-    [
-      'run',
-      'flutter_native_splash:create',
-      '--all-flavors',
-    ], // Команда dart run flutter_native_splash
-  );
-
-  if (result.exitCode != 0) {
-    print('Ошибка при выполнении flutter_native_splash: ${result.stderr}');
 
     return false;
   }

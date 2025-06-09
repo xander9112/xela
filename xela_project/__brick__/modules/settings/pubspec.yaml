@@ -4,15 +4,15 @@ version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: ">=3.6.0 <4.0.0"
-  flutter: ">=3.27.4"
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.32.0"
 
 dependencies:
   {{#useAuth}}
   auth:
     path: ../../modules/auth
   {{/useAuth}}
-  auto_route: 9.3.0+1
+  auto_route: ^10.1.0+1
   config:
     path: ../../shared/config
   core:
@@ -30,15 +30,15 @@ dependencies:
     path: ../../packages/ui_kit
 
 dev_dependencies:
-  auto_route_generator: 9.3.1
+  auto_route_generator: ^10.2.3
   build_runner: ^2.4.15
   flutter_test:
     sdk: flutter
-  freezed: 3.0.6
+  freezed: ^3.0.6
   injectable_generator: ^2.7.0
-  json_serializable: 6.9.5
-  retrofit_generator: ^9.1.9
-  very_good_analysis: ^7.0.0
+  json_serializable: ^6.9.5
+  retrofit_generator: ^9.2.0
+  very_good_analysis: ^9.0.0
 
 flutter:
   uses-material-design: true
