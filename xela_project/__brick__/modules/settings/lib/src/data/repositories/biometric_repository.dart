@@ -1,4 +1,5 @@
 import 'package:dependencies/dependencies.dart';
+import 'package:flutter/foundation.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:settings/src/_src.dart';
 
@@ -28,7 +29,13 @@ class BiometricRepositoryImpl implements BiometricRepository {
   }
 
   @override
-  Future<bool> get isAvailable => localAuth.canCheckBiometrics;
+  Future<bool> get isAvailable {
+    if (!kIsWeb) {
+      return localAuth.canCheckBiometrics;
+    }
+
+    return Future<bool>.value(false);
+  }
 
   @override
   Future<List<BiometricTypeModel>> get getAvailableBiometrics async {
