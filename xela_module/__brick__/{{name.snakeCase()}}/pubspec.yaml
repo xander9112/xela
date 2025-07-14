@@ -8,7 +8,7 @@ environment:
   flutter: ">=3.27.4"
 
 dependencies:
-  auto_route: 9.3.0+1
+  auto_route: 10.1.0+1
   core:
     path: ../../packages/core
   dependencies:
