@@ -35,4 +35,22 @@ class Env {
     FlavorStatus.staging => EnvStg.secureKey,
     FlavorStatus.production => EnvProd.secureKey,
   };
+
+  static int connectionTimeout = switch (Flavor.status) {
+    FlavorStatus.development => EnvDev.connectionTimeout,
+    FlavorStatus.staging => EnvStg.connectionTimeout,
+    FlavorStatus.production => EnvProd.connectionTimeout,
+  };
+
+  static int sendTimeout = switch (Flavor.status) {
+    FlavorStatus.development => EnvDev.sendTimeout,
+    FlavorStatus.staging => EnvStg.sendTimeout,
+    FlavorStatus.production => EnvProd.sendTimeout,
+  };
+
+  static int receiveTimeout = switch (Flavor.status) {
+    FlavorStatus.development => EnvDev.receiveTimeout,
+    FlavorStatus.staging => EnvStg.receiveTimeout,
+    FlavorStatus.production => EnvProd.receiveTimeout,
+  };
 }
