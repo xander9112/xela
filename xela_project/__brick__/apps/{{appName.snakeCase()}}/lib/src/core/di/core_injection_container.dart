@@ -40,7 +40,12 @@ abstract class CoreModule {
 
   @lazySingleton
   IHttpClient<Dio> get iHttpClient {
-    final client = DioHttpClient(url: Uri.parse(Env.apiUrl));
+    final client = DioHttpClient(
+      url: Uri.parse(Env.apiUrl),
+      connectTimeout: Duration(seconds: Env.connectionTimeout),
+      receiveTimeout: Duration(seconds: Env.receiveTimeout),
+      sendTimeout: Duration(seconds: Env.sendTimeout),
+    );
 
     client.client.interceptors.add(
       TalkerDioLogger(

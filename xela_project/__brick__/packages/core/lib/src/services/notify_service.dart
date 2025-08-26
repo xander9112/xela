@@ -22,7 +22,6 @@ class NotifyService {
             child: content,
           ),
         ),
-        backgroundColor: Colors.white,
         elevation: 0,
         showCloseIcon: false,
         duration: duration,

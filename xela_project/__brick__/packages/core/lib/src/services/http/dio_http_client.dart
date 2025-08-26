@@ -2,10 +2,18 @@ import 'package:core/core.dart';
 import 'package:dependencies/dependencies.dart';
 
 class DioHttpClient implements IHttpClient<Dio> {
-  DioHttpClient({required this.url}) {
+  DioHttpClient({
+    required this.url,
+    Duration? connectTimeout,
+    Duration? receiveTimeout,
+    Duration? sendTimeout,
+  }) {
     _client = Dio(
       BaseOptions(
         baseUrl: url.toString(),
+        connectTimeout: connectTimeout,
+        receiveTimeout: receiveTimeout,
+        sendTimeout: sendTimeout,
       ),
     );
   }
@@ -37,11 +45,7 @@ class DioHttpClient implements IHttpClient<Dio> {
     dynamic data,
     Map<String, String>? headers,
   }) {
-    return _client.post<T>(
-      url,
-      data: data,
-      options: Options(headers: headers),
-    );
+    return _client.post<T>(url, data: data, options: Options(headers: headers));
   }
 
   @override
@@ -50,21 +54,11 @@ class DioHttpClient implements IHttpClient<Dio> {
     dynamic data,
     Map<String, String>? headers,
   }) {
-    return _client.put<T>(
-      url,
-      data: data,
-      options: Options(headers: headers),
-    );
+    return _client.put<T>(url, data: data, options: Options(headers: headers));
   }
 
   @override
-  Future<Response<T>> delete<T>(
-    String url, {
-    Map<String, String>? headers,
-  }) {
-    return _client.delete<T>(
-      url,
-      options: Options(headers: headers),
-    );
+  Future<Response<T>> delete<T>(String url, {Map<String, String>? headers}) {
+    return _client.delete<T>(url, options: Options(headers: headers));
   }
 }

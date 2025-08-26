@@ -20,6 +20,15 @@ abstract class EnvProd {
 
   @EnviedField(varName: 'SECURE_KEY')
   static final String secureKey = _EnvProd.secureKey;
+
+  @EnviedField(varName: 'CONNECTION_TIMEOUT')
+  static final int connectionTimeout = _EnvProd.connectionTimeout;
+
+  @EnviedField(varName: 'SEND_TIMEOUT')
+  static final int sendTimeout = _EnvProd.sendTimeout;
+
+  @EnviedField(varName: 'RECEIVE_TIMEOUT')
+  static final int receiveTimeout = _EnvProd.receiveTimeout;
 }
 
 @Envied(
@@ -40,6 +49,15 @@ abstract class EnvDev {
 
   @EnviedField(varName: 'SECURE_KEY')
   static final String secureKey = _EnvDev.secureKey;
+
+  @EnviedField(varName: 'CONNECTION_TIMEOUT')
+  static final int connectionTimeout = _EnvDev.connectionTimeout;
+
+  @EnviedField(varName: 'SEND_TIMEOUT')
+  static final int sendTimeout = _EnvDev.sendTimeout;
+
+  @EnviedField(varName: 'RECEIVE_TIMEOUT')
+  static final int receiveTimeout = _EnvDev.receiveTimeout;
 }
 
 @Envied(
@@ -60,4 +78,13 @@ abstract class EnvStg {
 
   @EnviedField(varName: 'SECURE_KEY')
   static final String secureKey = _EnvStg.secureKey;
+
+  @EnviedField(varName: 'CONNECTION_TIMEOUT')
+  static final int connectionTimeout = _EnvStg.connectionTimeout;
+
+  @EnviedField(varName: 'SEND_TIMEOUT')
+  static final int sendTimeout = _EnvStg.sendTimeout;
+
+  @EnviedField(varName: 'RECEIVE_TIMEOUT')
+  static final int receiveTimeout = _EnvStg.receiveTimeout;
 }
